@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($scope) {
+	/* widget controller */
+	var c = this;
+
+	c.data.format = c.options.format || '';
+
+	c.data.number = parseInt(c.options.number_of_cards);
+	
+	c.getNumber = function(num) {
+		
+		return new Array(num);
+		
+	}
+
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.skeleton {
+  
+  opacity: .7;
+  animation: skeleton-loading 1s linear infinite alternate;
+  border: none;
+  
+}
+
+.skeletonHeading, .footer{
+
+  height: 44.27px;
+
+}
+
+.dummyButton{
+  
+  width: 75px;
+  height: 34px;
+  
+}
+
+.dummyButtonCard{
+  
+  width: 100%;
+  height: 34px;
+  
+}
+
+.cardInput{
+  
+  height: 15px;
+  
+}
+
+.cardInputHeading{
+  
+  margin-top: 15px;
+  height: 20px;
+  
+}
+
+.row{
+  
+  margin: 5px;
+  
+}
+
+.thumbnail{
+  
+  border-radius: 10px;
+  margin-top: 10px;
+  
+}
+
+.avatar{
+  
+  border-radius: 50%;
+  height: 8vw;
+  max-height: 135px;
+  width: 8vw;
+  max-width: 135px;
+  
+}
+
+@keyframes skeleton-loading {
+  
+  0% {
+  
+    background-color: hsl(200, 20%, 70%);
+  
+  }
+  
+  100% {
+  
+    background-color: hsl(200, 20%, 95%);
+  
+  }
+  
+}
+
+.card-img-top {
+  
+  height: 12vh; 
+  width: 100%;
+
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>skeleton_loading_form</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Skeleton Loading Form</name>
+        <option_schema>[{"name":"format","section":"Behavior","default_value":"","label":"Format","type":"choice","choices":[{"label":"formWithPanel","value":"formWithPanel"},{"label":"formWithoutBorder","value":"formWithoutBorder"},{"label":"cardWithImage","value":"cardWithImage"},{"label":"cardWithAvatar","value":"cardWithAvatar"}]},{"name":"number_of_cards","section":"Behavior","default_value":"3","label":"Number of Cards","type":"integer"}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+	
+	
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-05-09 19:12:30</sys_created_on>
+        <sys_id>e1479fae2f134510758993acf699b6a6</sys_id>
+        <sys_mod_count>277</sys_mod_count>
+        <sys_name>Skeleton Loading Form</sys_name>
+        <sys_package display_value="Skeleton Loading Form" source="x_187394_skeleton">0a1717622f134510758993acf699b6ee</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Skeleton Loading Form">0a1717622f134510758993acf699b6ee</sys_scope>
+        <sys_update_name>sp_widget_e1479fae2f134510758993acf699b6a6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-05-24 13:40:31</sys_updated_on>
+        <template><![CDATA[<!--Form with Panel-->
+<div id="formPanel" class="panel panel-default"
+     ng-show ="c.data.format == 'formWithPanel' || c.data.format == ''">
+  <div class="panel-heading skeletonHeading">
+  </div>
+  <div class="panel-body">
+    <div class="form-row">
+      <div class="form-group col-xs-6">
+        <input type="text" 
+               class="form-control skeleton"
+               disabled>
+      </div>
+      <div class="form-group col-xs-6">
+        <input type="text" 
+               class="form-control skeleton"
+               disabled>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-xs-6">
+        <input type="text" 
+               class="form-control skeleton"
+               disabled>
+      </div>
+      <div class="form-group col-xs-6">
+        <input type="text" 
+               class="form-control skeleton"
+               disabled>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-xs-12">
+        <input type="text" 
+               class="form-control skeleton"
+               disabled>
+      </div>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <div class="btn btn-default pull-right dummyButton skeleton">      
+    </div>
+    <div class="btn btn-default dummyButton skeleton">      
+    </div>
+  </div>
+</div>
+
+<!--Form without Panel-->
+<div id="formWithoutBorder"
+     ng-show="c.data.format == 'formWithoutBorder'  || c.data.format == ''"
+     >
+  <div class="form-row">
+    <div class="form-group col-xs-6">
+      <input type="text" 
+             class="form-control skeleton"
+             disabled>
+    </div>
+    <div class="form-group col-xs-6">
+      <input type="text" 
+             class="form-control skeleton"
+             disabled>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-xs-6">
+      <input type="text" 
+             class="form-control skeleton"
+             disabled>
+    </div>
+    <div class="form-group col-xs-6">
+      <input type="text" 
+             class="form-control skeleton"
+             disabled>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-xs-12">
+      <input type="text" 
+             class="form-control skeleton"
+             disabled>
+    </div>
+  </div>
+</div>
+
+<!--Cards With Image-->
+<div id="cardWithImage" class="col-xs-4"
+     ng-repeat="i in c.getNumber(c.data.number) track by $index"
+     ng-show="c.data.format == 'cardWithImage'  || c.data.format == ''">
+  <div class="thumbnail">
+    <div class="caption">
+      <div class="card-img-top skeleton">          
+      </div>
+      <div class="form-group col-xs-12">
+        <input type="text" 
+               class="form-control skeleton cardInputHeading"
+               disabled>
+      </div>
+      <div class="form-group col-xs-10">
+        <input type="text" 
+               class="form-control skeleton cardInput"
+               disabled>
+      </div>
+      <div class="form-group col-xs-10">
+        <input type="text" 
+               class="form-control skeleton cardInput"
+               disabled>
+      </div>
+      <div class="form-group col-xs-10">
+        <input type="text" 
+               class="form-control skeleton cardInput"
+               disabled>
+      </div>
+      <div class="btn btn-default dummyButton skeleton">      
+      </div>
+      <div class="btn btn-default dummyButton skeleton pull-right">      
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Cards With Avatar-->
+<div id="cardWithAvatar" class="col-xs-4"
+     ng-repeat="i in c.getNumber(c.data.number) track by $index"
+     ng-show="c.data.format == 'cardWithAvatar'  || c.data.format == ''">
+  <div class="thumbnail">
+    <div class="caption">
+      <div class="row">
+        <div class="avatar skeleton col-xs-4">       
+        </div>
+        <div class="form-group col-xs-5 pull-right">
+          <input type="text" 
+                 class="form-control skeleton cardInputHeading"
+                 disabled>
+        </div>  
+        <div class="form-group col-xs-5 pull-right">
+          <input type="text" 
+                 class="form-control skeleton cardInputHeading"
+                 disabled>
+        </div>  
+      </div>
+      <div class="form-group col-xs-12">
+        <input type="text" 
+               class="form-control skeleton cardInputHeading"
+               disabled>
+      </div>
+      <div class="form-group col-xs-6">
+        <input type="text" 
+               class="form-control skeleton cardInput"
+               disabled>
+      </div>
+      <div class="form-group col-xs-6">
+        <input type="text" 
+               class="form-control skeleton cardInput"
+               disabled>
+      </div>
+      <div class="form-group col-xs-6">
+        <input type="text" 
+               class="form-control skeleton cardInput"
+               disabled>
+      </div>
+      <div class="form-group col-xs-6">
+        <input type="text" 
+               class="form-control skeleton cardInput"
+               disabled>
+      </div>
+      <div class="btn btn-default dummyButton skeleton">      
+      </div>
+      <div class="btn btn-default dummyButton skeleton pull-right">      
+      </div>
+    </div>
+  </div>
+</div>
+
+
+]]></template>
+    </sp_widget>
+</record_update>
